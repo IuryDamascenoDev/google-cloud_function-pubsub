@@ -4,7 +4,7 @@ import json
 from google.cloud import pubsub_v1
 
 publisher = pubsub_v1.PublisherClient()
-PROJECT_ID = os.getenv('simple-spark-project')
+PROJECT_ID = os.getenv('YOUR_PROJECT_ID')
 
 
 def my_cloud_function(request):
@@ -12,32 +12,32 @@ def my_cloud_function(request):
 
     if data is None:
         print('request.data is empty')
-        return ('request.data is empty', 400)
+        return ('request.data is empty', 400) # Requests error 400: 'Bad request'
 
     print(f'request data: {data}')
 
     data_json = json.loads(data)
     print(f'json = {data_json}')
 
-    person_id = data_json['id']
-    name = data_json['name']
-    age = data_json['age']
+    key_1 = data_json['key1']
+    key_2 = data_json['key2']
+    key_3 = data_json['key3']
 
-    print(f'id = {person_id}')
-    print(f'name = {name}')
-    print(f'age = {age}')
+    print(f'key_1 = {key_1}')
+    print(f'key_2 = {key_2}')
+    print(f'key_3 = {key_3}')
 
-    ####################################
+    ################################################################
     # moving data to pubsub
 
-    topic_path = 'projects/simple-spark-project/topics/cdf-integ'
+    topic_path = 'YOUR_TOPIC_NAME'
 
     message_json = json.dumps({
         'data': {'message': 'readings!'},
         'readings': {
-            'id': person_id,
-            'name': name,
-            'age': age
+            'key_1': key_1,
+            'key_2': key_2,
+            'key_3': key_3
         }
     })
     message_bytes = message_json.encode('utf-8')
