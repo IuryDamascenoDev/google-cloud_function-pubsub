@@ -3,12 +3,11 @@ import json
 
 
 def send_message_to_readings_topic():
-    url = 'https://us-central1-simple-spark-project.cloudfunctions.net/\
-        my_cloud_function'
+    url = 'FUNCTION_URL'
     data = {
-        'id': '0001',
-        'name': 'iury',
-        'age': 19
+        'key_1': 'value_1',
+        'key_2': 'value_2',
+        'key_3': 'value_3'
     }
     headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
     r = requests.post(url, data=json.dumps(data), headers=headers)
