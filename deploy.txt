@@ -1,1 +1,1 @@
-gcloud functions deploy readings --runtime python39 --trigger-http --allow-unauthenticated
+gcloud functions deploy my_cloud_function --runtime python39 --trigger-http --allow-unauthenticated
