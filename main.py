@@ -19,13 +19,13 @@ def my_cloud_function(request):
     data_json = json.loads(data)
     print(f'json = {data_json}')
 
-    key_1 = data_json['key1']
-    key_2 = data_json['key2']
-    key_3 = data_json['key3']
+    value_1 = data_json['key1']
+    value_2 = data_json['key2']
+    value_3 = data_json['key3']
 
-    print(f'key_1 = {key_1}')
-    print(f'key_2 = {key_2}')
-    print(f'key_3 = {key_3}')
+    print(f'key_1 = {value_1}')
+    print(f'key_2 = {value_2}')
+    print(f'key_3 = {value_3}')
 
     ################################################################
     # moving data to pubsub
@@ -35,9 +35,9 @@ def my_cloud_function(request):
     message_json = json.dumps({
         'data': {'message': 'readings!'},
         'readings': {
-            'key_1': key_1,
-            'key_2': key_2,
-            'key_3': key_3
+            'key_1': value_1,
+            'key_2': value_2,
+            'key_3': value_3
         }
     })
     message_bytes = message_json.encode('utf-8')
