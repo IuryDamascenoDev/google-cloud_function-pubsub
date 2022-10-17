@@ -1,3 +1,2 @@
-## Cloud function simple integration with pubsub
+## Integração do GCP CLoud Functions ao Pub/Sub para envio e recebimento de mensagens
 
-Willing to create bigger system using GCP tools.
